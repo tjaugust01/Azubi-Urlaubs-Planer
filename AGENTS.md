@@ -51,4 +51,23 @@ D. Technischer Stack
 
     File-Parser: CSV-Reader für den Schulplan bauen.
 
-    Calendar-Builder: Logik zur Erstellung des Master-Kalenders inkl. Feiertags-Integration.
+    Calendar-Builder: Logik zur Erstellung des Master-Kalenders inkl. Feiertags-Integration.5
+5. Die Scoring-Logik (Algorithmus)
+Um den "optimalen" Urlaub zu finden, bewertet das Programm potenzielle Zeiträume mit Punkten:
+
+Effizienz: (Freie Tage / Verbrauchte Urlaubstage) * Gewichtungsfaktor.
+
+Muss-Urlaub: SCHOOL_CLOSED Tage erhalten einen massiven Punkte-Bonus, um sie prioritär zu belegen.
+
+Erholung: Bonus-Punkte für zusammenhängende freie Tage (z.B. > 7 Tage).
+
+Betriebs-Burnout: Bonus-Punkte, wenn seit dem letzten Urlaub > 8 Wochen vergangen sind.
+
+6.  Dateistruktur & Module
+main.py: CLI-Interface, Menüführung und Wizard.
+
+core/calendar_builder.py: Logik für das Master-Dictionary (Datum -> Typ).
+
+core/optimizer.py: Such-Algorithmus und Scoring-Engine.
+
+core/config_manager: CSV-Reader für schulplan.csv und JSON-Handler für config.json.

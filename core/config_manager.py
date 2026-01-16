@@ -1,0 +1,1 @@
+#Liest und speichert Daten in der Config
